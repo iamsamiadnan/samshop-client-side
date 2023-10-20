@@ -1,6 +1,17 @@
 import React from "react";
+import { AiOutlineHome, AiOutlineShoppingCart, AiOutlineCustomerService, AiOutlineLogin } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
+    const navlinks =
+    <>
+    <li><a> <AiOutlineHome /> Home</a></li>
+
+    <li> <NavLink to='/addProduct'><AiOutlineCustomerService /> Add Product</NavLink> </li>
+    
+    <li><a> <AiOutlineShoppingCart /> My Cart</a></li>
+    <li><a> <AiOutlineLogin /> Login</a></li>
+    </>
 	return (
 		<div className="navbar bg-base-100">
 			<div className="navbar-start">
@@ -25,23 +36,8 @@ export default function Header() {
 						tabIndex={0}
 						className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
 					>
-						<li>
-							<a>Item 1</a>
-						</li>
-						<li>
-							<a>Parent</a>
-							<ul className="p-2">
-								<li>
-									<a>Submenu 1</a>
-								</li>
-								<li>
-									<a>Submenu 2</a>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<a>Item 3</a>
-						</li>
+						{navlinks}
+						
 					</ul>
 				</div>
 				<div className="flex gap-3 items-center">
@@ -51,25 +47,8 @@ export default function Header() {
 			</div>
 			<div className="navbar-center hidden lg:flex">
 				<ul className="menu menu-horizontal px-1">
-					<li>
-						<a>Item 1</a>
-					</li>
-					<li tabIndex={0}>
-						<details>
-							<summary>Parent</summary>
-							<ul className="p-2">
-								<li>
-									<a>Submenu 1</a>
-								</li>
-								<li>
-									<a>Submenu 2</a>
-								</li>
-							</ul>
-						</details>
-					</li>
-					<li>
-						<a>Item 3</a>
-					</li>
+                {navlinks}
+					
 				</ul>
 			</div>
 			<div className="navbar-end">
