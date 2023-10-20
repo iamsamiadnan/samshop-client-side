@@ -1,16 +1,60 @@
-import React from 'react'
+import React, { useState } from 'react'
+import toast from 'react-hot-toast'
 import { useLoaderData } from 'react-router-dom'
 
 export default function AddProduct() {
 
     const brands = useLoaderData()
+    const [spinner, setSpinner] = useState(false)
+
+    const handleAddProduct = (e) => {
+        
+        e.preventDefault();
+        setSpinner(true);
+        const form = e.target;
+
+        const _bid = form.brand.value;
+        const image_url = form.image_url.value;
+        const name = form.name.value;
+        const price = form.price.value;
+        const desc = form.desc.value;
+
+       
+
+        const product = { _bid, name, image_url, price, desc}
+        
+        console.log(product)
+
+        fetch('http://localhost:5000/addProducts', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(product)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+
+            if(data.acknowledged) {
+                form.reset();
+                setSpinner(false);
+                toast.success('Product Added!')
+                
+            }
+            
+        })
+   
+    }
+
+
   return (
     <div>
-        <form action="">
+        <form action="" onSubmit={handleAddProduct}>
             <div className='flex flex-col gap-4'>
                 <div className='flex flex-col gap-2'>
-                <label htmlFor="thumb_url">Image URL <sup className='text-red-500'>*</sup></label>
-                <input type="text" id='thumb_url' name='thumb_url' placeholder="Type here" className="input input-bordered w-full max-w-xs" required/>
+                <label htmlFor="image_url">Image URL <sup className='text-red-500'>*</sup></label>
+                <input type="text" id='image_url' name='image_url' placeholder="Type here" className="input input-bordered w-full max-w-xs" required/>
                 </div>
 
                 <div className='flex flex-col gap-2'>
@@ -19,9 +63,9 @@ export default function AddProduct() {
                 </div>
 
                 <div className='flex flex-col gap-2'>
-                     <label htmlFor="brand">Product Name <sup className='text-red-500'>*</sup></label>
+                     <label htmlFor="brand">Brand <sup className='text-red-500'>*</sup></label>
                     <select id='brand' name='brand' className="select select-bordered w-full max-w-xs">
-                        <option disabled selected>---</option>
+                  
                         {
                             brands.map(brand => <option key={brand._id} value={brand._id}>{brand.name}</option>)
                         }
@@ -40,7 +84,7 @@ export default function AddProduct() {
 
                <div className='inline'>
                 <button className="btn">
-                    <span className="loading loading-spinner"></span>
+                    <span className={`loading loading-spinner ${spinner || 'hidden'}`}></span>
                     Add Product
                 </button>
                </div>
