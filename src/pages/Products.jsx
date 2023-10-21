@@ -2,6 +2,7 @@ import React from 'react'
 import { useLoaderData, useParams } from 'react-router-dom'
 import ProductCard from './Shared/ProductCard'
 import Banner from './Shared/Banner'
+import AdsBanner from './Shared/AdsBanner'
 
 
 
@@ -15,7 +16,8 @@ export default function Products() {
     
     <div>
              <div className='mb-32'>
-            <Banner />
+                <h1>ADVERTISEMENTS*</h1>
+           <AdsBanner/>
         </div>
            
            <div>

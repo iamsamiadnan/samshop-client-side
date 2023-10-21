@@ -25,7 +25,7 @@ export default function Header() {
 
 	const navlinks = (
 		<>
-			<div className="flex gap-2">
+			<div className="flex gap-2 items-center">
 				<li>
 					
 					<NavLink to="/">
@@ -47,13 +47,15 @@ export default function Header() {
 				</li>
 
 		
-					{user && <div className="flex gap-2 items-center"><span>{user.displayName}</span> 
+				
+					{user && <div className="flex gap-2 items-center border border-blue-500 rounded p-2"><span>{user.displayName}</span> 
 					
 					
-					<div className="avatar online"><div className="w-6 rounded-full"><img src={user.photoURL} /></div></div>
+					<div className="avatar online"><div className="w-6 rounded-full border border-blue-500"><img src={user.photoURL} /></div></div>
 					</div>
 					
 					}
+			
 		
 				{user ? (
 					<li>

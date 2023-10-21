@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { Link, useLoaderData } from 'react-router-dom'
 import { AiFillStar } from "react-icons/ai";
 import toast from 'react-hot-toast';
 import { AuthContext } from '../providers/AuthProvider';
@@ -62,9 +62,10 @@ const handleAddToCart = () => {
                     <span className='text-xl'>৳ {price}</span>
                     </div>
 
-                    <pre className='border border-gray-500 rounded p-4 mb-4'>
+                    <p className='border border-gray-500 rounded p-4 mb-4'>
+                        <b>DESCRIPTION:</b><br />
                         {desc}
-                    </pre>
+                    </p>
 
                     <button className="btn btn-active btn-primary" onClick={handleAddToCart}>Add to Cart</button>
            

@@ -12,23 +12,26 @@ export default function AdsBanner() {
         autoplaySpeed: 2000
       };
       
+
+ 
+
   return (
   
     <Slider {...settings}>
       <div>
-        <img src="https://i.ibb.co/wBXx7Sm/Rectangle-1.webp" alt="" />
+        <img src="https://i.ibb.co/VxS5SYQ/Rectangle-1.webp" alt="" />
       </div>
 
       <div>
-        <img src="https://i.ibb.co/Sv9P11c/Rectangle-2.webp" alt="" />
+        <img src="https://i.ibb.co/5xGp9XJ/Rectangle-2.webp" alt="" />
       </div>
 
       <div>
-        <img src="https://i.ibb.co/WsVd5r7/Rectangle-3.webp" alt="" />
+        <img src="https://i.ibb.co/yqDDGc5/Rectangle-3.webp" alt="" />
       </div>
 
       <div>
-        <img src="https://i.ibb.co/98kFq9f/Rectangle-4.webp" alt="" />
+        <img src="https://i.ibb.co/QFRk60f/Rectangle-4.webp" alt="" />
       </div>
      
     </Slider>
