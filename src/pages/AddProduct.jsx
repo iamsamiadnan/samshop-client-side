@@ -13,15 +13,18 @@ export default function AddProduct() {
         setSpinner(true);
         const form = e.target;
 
-        const _bid = form.brand.value;
-        const image_url = form.image_url.value;
-        const name = form.name.value;
-        const price = form.price.value;
-        const desc = form.desc.value;
+        const image_url = form.image_url.value 
+        const name = form.name.value 
+        const brand = form.brand.value 
+        const category = form.category.value 
+        const price = form.price.value 
+        const desc = form.desc.value 
+        const ratings = form.ratings.value 
+
 
        
 
-        const product = { _bid, name, image_url, price, desc}
+        const product = {image_url,name, brand, category, price, desc, ratings  }
         
         console.log(product)
 
@@ -67,8 +70,20 @@ export default function AddProduct() {
                     <select id='brand' name='brand' className="select select-bordered w-full max-w-xs">
                   
                         {
-                            brands.map(brand => <option key={brand._id} value={brand._id}>{brand.name}</option>)
+                            brands.map(brand => <option key={brand._id} value={brand.name.toLowerCase()}>{brand.name}</option>)
                         }
+                    </select>
+                </div>
+
+                <div className='flex flex-col gap-2'>
+                     <label htmlFor="brand">Category <sup className='text-red-500'>*</sup></label>
+                    <select id='category' name='category' className="select select-bordered w-full max-w-xs">
+                  
+                        <option value="smartphones">Smartphones</option>
+                        <option value="earbuds">Earbuds</option>
+                        <option value="smartwatches">Smartwatches</option>
+                        <option value="laptops">Laptops</option>
+                        <option value="monitors">Monitors</option>
                     </select>
                 </div>
 
@@ -78,9 +93,16 @@ export default function AddProduct() {
                 </div>
 
                 <div className='flex flex-col gap-2'>
-                <label htmlFor="desc">Description <sup className='text-red-500'>*</sup></label>
+                <label htmlFor="desc">Short Description <sup className='text-red-500'>*</sup></label>
                 <textarea placeholder="Bio" id='desc' name='desc' className="textarea textarea-bordered textarea-sm w-full max-w-xs" required></textarea>
                 </div>
+
+         
+                <div className='flex flex-col gap-2'>
+                <label htmlFor="ratings">Ratings <sup className='text-red-500'>*</sup></label>
+                <input type="number" id='ratings' name='ratings' placeholder="" className="input input-bordered w-full max-w-xs" min='0' max='5' required/>
+                </div>
+       
 
                <div className='inline'>
                 <button className="btn">

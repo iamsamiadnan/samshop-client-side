@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import BrandCard from './Shared/BrandCard'
 import { useLoaderData } from 'react-router-dom'
 import Banner from './Shared/Banner';
-import { AiOutlineThunderbolt } from "react-icons/ai";
+import { AiOutlineThunderbolt, AiOutlineQuestionCircle } from "react-icons/ai";
 import ProductCard from './Shared/ProductCard';
+import FAQ from './Shared/FAQ';
 export default function Home() {
 
     const brands = useLoaderData();
@@ -11,7 +12,7 @@ export default function Home() {
 
     useEffect(() => {
 
-        fetch('http://localhost:5000/products', {
+        fetch('http://localhost:5000/products/flashsales', {
             method: 'GET'
         })
         .then(res => res.json())
@@ -33,7 +34,7 @@ export default function Home() {
             }
         </div>
 
-        <div>
+        <div className='mb-20'>
             <div className='border border-gray-500 rounded p-6 flex gap-2 items-center mb-4'>
                 FLASH SALE <AiOutlineThunderbolt className='text-orange-500'/>
             </div>
@@ -42,6 +43,13 @@ export default function Home() {
                 products && products.map((product) => <ProductCard key={product._id} product={product} />)
             }
             </div>
+        </div>
+
+        <div className='mb-20'>
+            <div className='border border-gray-500 rounded p-6 flex gap-2 items-center mb-4'>
+                <AiOutlineQuestionCircle className='text-orange-500'/> FAQ 
+            </div>
+            <FAQ />
         </div>
     </div>
   )
