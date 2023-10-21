@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import BrandCard from './Shared/BrandCard'
 import { useLoaderData } from 'react-router-dom'
 import Banner from './Shared/Banner';

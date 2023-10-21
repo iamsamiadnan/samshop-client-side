@@ -1,9 +1,9 @@
-import React from 'react'
+
 import { AiFillStar } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 export default function ProductCard({product}) {
 
-    const {_id, brand,category, name, image_url, price, desc, ratings} = product
+    const {_id, brand,category, name, image_url, price, ratings} = product
 
    
   return (

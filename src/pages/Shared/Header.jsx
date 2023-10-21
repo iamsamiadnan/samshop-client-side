@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import {
 	AiOutlineHome,
 	AiOutlineShoppingCart,
@@ -15,7 +15,7 @@ export default function Header() {
 
 	const handleSignOut = () => {
 		signOutUser()
-			.then((res) => {
+			.then(() => {
 				toast.success("Signed Out!");
 			})
 			.catch((err) => {

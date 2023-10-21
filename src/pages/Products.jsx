@@ -1,7 +1,7 @@
-import React from 'react'
+
 import { useLoaderData, useParams } from 'react-router-dom'
 import ProductCard from './Shared/ProductCard'
-import Banner from './Shared/Banner'
+
 import AdsBanner from './Shared/AdsBanner'
 
 

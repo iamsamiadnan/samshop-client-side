@@ -1,4 +1,4 @@
-import React from "react";
+
 
 export default function FAQ() {
 	return (
@@ -18,7 +18,7 @@ export default function FAQ() {
                 How can I track my order?
 				</div>
 				<div className="collapse-content">
-					<p>You can track your order by logging into your account and visiting the "Order Status" section.</p>
+					<p>You can track your order by logging into your account and visiting the order status section.</p>
 				</div>
 			</div>
 			<div className="collapse collapse-arrow join-item border border-base-300">

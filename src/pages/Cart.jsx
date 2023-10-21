@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Link, useLoaderData } from 'react-router-dom'
-import ProductCard from './Shared/ProductCard'
+import { useContext, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+
 import { AuthContext } from '../providers/AuthProvider'
 import toast from 'react-hot-toast'
 

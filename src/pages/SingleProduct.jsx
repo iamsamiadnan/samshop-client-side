@@ -1,12 +1,12 @@
-import React, { useContext } from 'react'
-import { Link, useLoaderData } from 'react-router-dom'
+import  { useContext } from 'react'
+import { useLoaderData } from 'react-router-dom'
 import { AiFillStar } from "react-icons/ai";
 import toast from 'react-hot-toast';
 import { AuthContext } from '../providers/AuthProvider';
 export default function SingleProduct() {
     const {user} = useContext(AuthContext)
     const product = useLoaderData()
-    const {_id, image_url, name, brand, category, price, desc, ratings, flash_sale} = product
+    const {_id, image_url, name, brand, category, price, desc, ratings} = product
     
 const handleAddToCart = () => {
   

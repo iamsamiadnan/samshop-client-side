@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import toast from 'react-hot-toast';
 import { AuthContext } from '../providers/AuthProvider';
 import { Link, useNavigate } from "react-router-dom";
@@ -35,7 +35,7 @@ export default function SignUp() {
 
 
             createUser(email, pass)
-            .then(res => {
+            .then(() => {
        
 
                 updateUserProfile(name, photo_url)

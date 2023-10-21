@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
-import { useLoaderData, useNavigate, useParams } from 'react-router-dom'
+import { useLoaderData, useNavigate } from 'react-router-dom'
 
 export default function UpdateProduct() {
 
