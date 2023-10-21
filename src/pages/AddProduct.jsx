@@ -84,10 +84,11 @@ export default function AddProduct() {
                   
                         <option value="smartphones">Smartphones</option>
                         <option value="earbuds">Earbuds</option>
-                        <option value="smartwatches">Smartwatches</option>
+                        <option value="smartwatches" >Smartwatches</option>
                         <option value="laptops">Laptops</option>
-                        <option value="monitors">Monitors</option>
+                        <option value="monitors" >Monitors</option>
                         <option value="gadgets">Gadgets</option>
+                        <option value="processor">Processor</option>
                     </select>
                 </div>
 

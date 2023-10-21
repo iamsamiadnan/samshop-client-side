@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
-import { useLoaderData, useParams } from 'react-router-dom'
+import { useLoaderData, useNavigate, useParams } from 'react-router-dom'
 
 export default function UpdateProduct() {
 
@@ -8,15 +8,22 @@ export default function UpdateProduct() {
 
     console.log(prod)
     const [spinner, setSpinner] = useState(false)
-    const [product, setProduct] = useState(null)
+    const navigate = useNavigate()
 
-    const param = useParams();
+
     
+    const [brands, setBrands] = useState([])
+
     useEffect(() => {
+       fetch('http://localhost:5000/brands/', {
+        method: 'GET'
+       })
+       .then(res => res.json())
+       .then(data => setBrands(data))
        
     }, [])
 
-    const handleAddProduct = (e) => {
+    const handleUpdateProduct = (e) => {
         
         e.preventDefault();
         setSpinner(true);
@@ -35,10 +42,10 @@ export default function UpdateProduct() {
 
         const product = {image_url,name, brand, category, price, desc, ratings  }
         
-        console.log(product)
+     
 
-        fetch('http://localhost:5000/addProducts', {
-            method: 'POST',
+        fetch(`http://localhost:5000/products/${prod._id}`, {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
@@ -51,8 +58,8 @@ export default function UpdateProduct() {
             if(data.acknowledged) {
                 form.reset();
                 setSpinner(false);
-                toast.success('Product Added!')
-                
+                toast.success('Product Updated!')
+                navigate(`/products/single/${prod._id}`)
             }
             
         })
@@ -65,7 +72,7 @@ export default function UpdateProduct() {
         <div className='border border-gray-500 rounded p-6 flex gap-2 items-center mb-14'>
                UPDATE PRODUCT 
             </div>
-        <form action="" onSubmit={handleAddProduct}>
+        <form action="" onSubmit={handleUpdateProduct}>
             <div className='flex flex-col gap-4'>
                 <div className='flex flex-col gap-2'>
                 <label htmlFor="image_url">Image URL <sup className='text-red-500'>*</sup></label>
@@ -82,7 +89,7 @@ export default function UpdateProduct() {
                     <select id='brand' name='brand' className="select select-bordered w-full max-w-xs">
                   
                         {
-                            // brands.map(brand => <option key={brand._id} value={brand.name.toLowerCase()}>{brand.name}</option>)
+                            brands.map(brand => <option key={brand._id} value={brand.name.toLowerCase()} selected={prod.brand === brand.name.toLowerCase() && true} >{brand.name}</option>)
                         }
                     </select>
                 </div>
@@ -91,11 +98,13 @@ export default function UpdateProduct() {
                      <label htmlFor="brand">Category <sup className='text-red-500'>*</sup></label>
                     <select id='category' name='category' className="select select-bordered w-full max-w-xs">
                   
-                        <option value="smartphones">Smartphones</option>
-                        <option value="earbuds">Earbuds</option>
-                        <option value="smartwatches">Smartwatches</option>
-                        <option value="laptops">Laptops</option>
-                        <option value="monitors">Monitors</option>
+                        <option value="smartphones" selected={prod.category === 'smartphones' && true} >Smartphones</option>
+                        <option value="earbuds"  selected={prod.category === 'earbuds' && true} >Earbuds</option>
+                        <option value="smartwatches"  selected={prod.category === 'smartwatches' && true} >Smartwatches</option>
+                        <option value="laptops"  selected={prod.category === 'laptops' && true} >Laptops</option>
+                        <option value="monitors"  selected={prod.category === 'monitors' && true} >Monitors</option>
+                        <option value="gadgets"  selected={prod.category === 'gadgets' && true} >Gadgets</option>
+                        <option value="processor"  selected={prod.category === 'processor' && true} >Processor</option>
                     </select>
                 </div>
 
