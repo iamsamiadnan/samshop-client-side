@@ -14,5 +14,7 @@ export default function PrivateRoutes({children}) {
     if(user) {
         return children;
     }
+
+    
   return <Navigate state={location.pathname} to='/signin'></Navigate>
 }

@@ -2,28 +2,30 @@
 import toast from 'react-hot-toast';
 import { AuthContext } from '../providers/AuthProvider';
 import { useContext } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 export default function SignIn() {
-    const {signInUser } = useContext(AuthContext)
+    const {user, signInUser } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation()
     const handleSignUp = (event) => {
         event.preventDefault()
         const form = event.target;
 
         const email  = form.email.value; 
         const pass = form.pass.value ;
-  
-
+    
 
 
 
         signInUser(email, pass)
         .then(res => {
-    
-          console.log(res)
+   
+          toast.success(`Welcome Back! ${res.user.displayName}`)
+          navigate(location?.state ? location.state : '/')
          
         })
         .catch(err => {
-          toast.error(err.code)
+          toast.error(err)
         })
 
 

@@ -119,7 +119,7 @@ export default function UpdateProduct() {
                <div className='inline'>
                 <button className="btn">
                     <span className={`loading loading-spinner ${spinner || 'hidden'}`}></span>
-                    Add Product
+                    Update Product
                 </button>
                </div>
             </div>
