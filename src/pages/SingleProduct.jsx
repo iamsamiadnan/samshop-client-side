@@ -1,11 +1,37 @@
 import React from 'react'
 import { useLoaderData } from 'react-router-dom'
 import { AiFillStar } from "react-icons/ai";
+import toast from 'react-hot-toast';
 export default function SingleProduct() {
 
     const product = useLoaderData()
     const {_id, image_url, name, brand, category, price, desc, ratings, flash_sale} = product
     
+const handleAddToCart = () => {
+  
+    fetch('http://localhost:5000/addToCart', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                _pid: _id,
+                _uid: 1
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            
+            if(data.acknowledged) {
+                toast.success('Product Added To Cart!')
+            }
+            
+           
+            
+        })
+}
+
   return (
    <div>
     
@@ -32,11 +58,11 @@ export default function SingleProduct() {
                     <span className='text-xl'>৳ {price}</span>
                     </div>
 
-                    <pre className='border border-gray-500 rounded p-4'>
+                    <pre className='border border-gray-500 rounded p-4 mb-4'>
                         {desc}
                     </pre>
 
-                  
+                    <button className="btn btn-active btn-primary" onClick={handleAddToCart}>Add to Cart</button>
            
                 </div>
   
