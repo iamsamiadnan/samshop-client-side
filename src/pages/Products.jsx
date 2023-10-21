@@ -27,6 +27,12 @@ export default function Products() {
                     products && products.map((product) => <ProductCard key={product._id} product={product} />)
                 }
                 </div>
+
+                <div className='flex justify-center'>
+                {
+                    products.length === 0 && <img src="https://i.ibb.co/fdb8GBH/no-product.png" alt="" />
+                }
+                </div>
            </div>
             
     </div>

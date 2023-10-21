@@ -70,8 +70,8 @@ export default function AddProduct() {
 
                 <div className='flex flex-col gap-2'>
                      <label htmlFor="brand">Brand <sup className='text-red-500'>*</sup></label>
-                    <select id='brand' name='brand' className="select select-bordered w-full max-w-xs">
-                  
+                    <select id='brand' name='brand' className="select select-bordered w-full max-w-xs" >
+                     
                         {
                             brands.map(brand => <option key={brand._id} value={brand.name.toLowerCase()}>{brand.name}</option>)
                         }
@@ -79,7 +79,7 @@ export default function AddProduct() {
                 </div>
 
                 <div className='flex flex-col gap-2'>
-                     <label htmlFor="brand">Category <sup className='text-red-500'>*</sup></label>
+                     <label htmlFor="brand">Category (Type) <sup className='text-red-500'>*</sup></label>
                     <select id='category' name='category' className="select select-bordered w-full max-w-xs">
                   
                         <option value="smartphones">Smartphones</option>
@@ -87,6 +87,7 @@ export default function AddProduct() {
                         <option value="smartwatches">Smartwatches</option>
                         <option value="laptops">Laptops</option>
                         <option value="monitors">Monitors</option>
+                        <option value="gadgets">Gadgets</option>
                     </select>
                 </div>
 

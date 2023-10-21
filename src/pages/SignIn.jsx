@@ -25,7 +25,7 @@ export default function SignIn() {
          
         })
         .catch(err => {
-          toast.error(err)
+          toast.error(err.code)
         })
 
 
