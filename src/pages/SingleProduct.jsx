@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useLoaderData } from 'react-router-dom'
 import { AiFillStar } from "react-icons/ai";
 import toast from 'react-hot-toast';
+import { AuthContext } from '../providers/AuthProvider';
 export default function SingleProduct() {
-
+    const {user} = useContext(AuthContext)
     const product = useLoaderData()
     const {_id, image_url, name, brand, category, price, desc, ratings, flash_sale} = product
     
@@ -15,8 +16,11 @@ const handleAddToCart = () => {
                 'content-type': 'application/json'
             },
             body: JSON.stringify({
+                _uid: user.uid,
                 _pid: _id,
-                _uid: 1
+                name: name,
+                price: price
+                
             })
         })
         .then(res => res.json())

@@ -25,8 +25,8 @@ export default function ProductCard({product}) {
            </div>
 
            <div className='flex gap-4 justify-center'>
-           <Link to={`/products/single/${_id}`} class="btn text-sm btn-xs border border-blue-800 rounded-sm bg-white hover:bg-blue-800 hover:text-white">Details</Link>
-           <Link to={`/updateProduct/${_id}`} class="btn text-sm btn-xs border border-orange-500 rounded-sm bg-white hover:bg-orange-500 hover:text-white">Update</Link>
+           <Link to={`/products/single/${_id}`} className="btn text-sm btn-xs border border-blue-800 rounded-sm bg-white hover:bg-blue-800 hover:text-white">Details</Link>
+           <Link to={`/updateProduct/${_id}`} className="btn text-sm btn-xs border border-orange-500 rounded-sm bg-white hover:bg-orange-500 hover:text-white">Update</Link>
            </div>
         </div>
     </div>

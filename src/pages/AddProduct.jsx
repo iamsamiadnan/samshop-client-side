@@ -53,6 +53,9 @@ export default function AddProduct() {
 
   return (
     <div>
+        <div className='p-6 border border-gray-500 rounded mb-16'>
+            ADD PRODUCT
+        </div>
         <form action="" onSubmit={handleAddProduct}>
             <div className='flex flex-col gap-4'>
                 <div className='flex flex-col gap-2'>
