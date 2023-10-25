@@ -8,11 +8,12 @@ import FAQ from './Shared/FAQ';
 export default function Home() {
 
     const brands = useLoaderData();
+    
     const [products, setProducts] = useState([])
 
     useEffect(() => {
 
-        fetch('http://localhost:5000/products/flashsales', {
+        fetch('https://server-side-kcn8oes4s-adnan-samis-projects.vercel.app/products/flashsales', {
             method: 'GET'
         })
         .then(res => res.json())
@@ -30,7 +31,7 @@ export default function Home() {
         </div>
         <div className='grid grid-cols-4  gap-6 mb-20'>
             {
-                brands.map((brand) => <BrandCard key={brand._id} brand={brand} />)
+                brands && brands.map((brand) => <BrandCard key={brand._id} brand={brand} />)
             }
         </div>
 

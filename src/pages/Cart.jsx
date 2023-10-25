@@ -11,7 +11,7 @@ export default function Cart() {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/products/cart/${user.uid}`, {
+        fetch(`https://server-side-kcn8oes4s-adnan-samis-projects.vercel.app/products/cart/${user.uid}`, {
             method: 'GET'
         })
         .then(res => res.json())
@@ -22,7 +22,7 @@ export default function Cart() {
     }, [])
 
     const handleDeleteProduct = (id, _cartId) => {
-        fetch(`http://localhost:5000/products/${id}/${user.uid}`, {
+        fetch(`https://server-side-kcn8oes4s-adnan-samis-projects.vercel.app/products/${id}/${user.uid}`, {
             method: 'DELETE'
         })
         .then(res => res.json())

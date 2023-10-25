@@ -9,6 +9,7 @@ import Cart from "../pages/Cart";
 import SignUp from "../pages/SignUp";
 import SignIn from "../pages/SignIn";
 import PrivateRoutes from "./PrivateRoutes";
+import P404 from "../pages/P404";
 
 
 
@@ -20,22 +21,22 @@ const router = createBrowserRouter([
         {
             path: '/',
             element: <Home />,
-            loader: () => fetch('http://localhost:5000/brands')
+            loader: () => fetch('https://server-side-kcn8oes4s-adnan-samis-projects.vercel.app/brands')
         },
         {
             path: '/addProduct',
             element: <PrivateRoutes> <AddProduct /></PrivateRoutes>,
-            loader: () => fetch('http://localhost:5000/brands')
+            loader: () => fetch('https://server-side-kcn8oes4s-adnan-samis-projects.vercel.app/brands')
         },
         {
           path: '/products/:brand',
           element: <Products />,
-          loader: ({params}) => fetch(`http://localhost:5000/products/${params.brand}`)
+          loader: ({params}) => fetch(`https://server-side-kcn8oes4s-adnan-samis-projects.vercel.app/products/${params.brand}`)
         },
         {
           path: '/products/single/:id',
           element: <PrivateRoutes><SingleProduct /></PrivateRoutes>,
-          loader: ({params}) => fetch(`http://localhost:5000/products/single/${params.id}`)
+          loader: ({params}) => fetch(`https://server-side-kcn8oes4s-adnan-samis-projects.vercel.app/products/single/${params.id}`)
         },
         {
           path: '/cart',
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
         {
           path: '/updateProduct/:id',
           element: <PrivateRoutes><UpdateProduct /></PrivateRoutes>,
-          loader: ({params}) => fetch(`http://localhost:5000/products/single/${params.id}`)
+          loader: ({params}) => fetch(`https://server-side-kcn8oes4s-adnan-samis-projects.vercel.app/products/single/${params.id}`)
         }
         ,
         {
@@ -54,7 +55,11 @@ const router = createBrowserRouter([
         {
           path: '/signin',
           element: <SignIn />
-        }
+        },
+        {
+          path: '*',
+          element: <P404 />
+      }
       ]
     },
   ]);

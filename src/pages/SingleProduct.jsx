@@ -10,7 +10,7 @@ export default function SingleProduct() {
     
 const handleAddToCart = () => {
   
-    fetch('http://localhost:5000/addToCart', {
+    fetch('https://server-side-kcn8oes4s-adnan-samis-projects.vercel.app/addToCart', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

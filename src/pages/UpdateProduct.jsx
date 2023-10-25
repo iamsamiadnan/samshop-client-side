@@ -15,7 +15,7 @@ export default function UpdateProduct() {
     const [brands, setBrands] = useState([])
 
     useEffect(() => {
-       fetch('http://localhost:5000/brands/', {
+       fetch('https://server-side-kcn8oes4s-adnan-samis-projects.vercel.app/brands/', {
         method: 'GET'
        })
        .then(res => res.json())
@@ -44,7 +44,7 @@ export default function UpdateProduct() {
         
      
 
-        fetch(`http://localhost:5000/products/${prod._id}`, {
+        fetch(`https://server-side-kcn8oes4s-adnan-samis-projects.vercel.app/products/${prod._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

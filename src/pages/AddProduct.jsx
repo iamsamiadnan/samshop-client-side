@@ -29,7 +29,7 @@ export default function AddProduct() {
         
         console.log(product)
 
-        fetch('http://localhost:5000/addProducts', {
+        fetch('https://server-side-kcn8oes4s-adnan-samis-projects.vercel.app/addProducts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
